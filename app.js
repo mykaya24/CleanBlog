@@ -1,15 +1,23 @@
 const express = require('express');
+const mongoose = require('mongoose');
+
 const ejs = require('ejs');
+const Post = require('./models/Post');
+
 const app = express();
+mongoose.connect('mongodb://localhost/cleanblog-test-db');
 
 app.set('view engine', 'ejs');
 
 app.use(express.static('public'));
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
 const port = 3000;
 
-app.get('/', (req, res) => {
-  res.render('index');
+app.get('/', async (req, res) => {
+  const postList = await Post.find({});
+  res.render('index',{postList});
 });
 
 app.get('/about', (req, res) => {
@@ -17,8 +25,13 @@ app.get('/about', (req, res) => {
 });
 
 app.get('/addPost', (req, res) => {
-    res.render('add_post');
-  });
+  res.render('add_post');
+});
+
+app.post('/posts', async (req, res) => {
+  await Post.create(req.body);
+  res.redirect('/');
+});
 
 app.listen(port, () => {
   console.log('Sunucu Hazır');
