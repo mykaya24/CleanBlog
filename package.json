@@ -1,0 +1,32 @@
+{
+  "name": "cleanblog",
+  "version": "1.0.0",
+  "description": "Blog Projesi",
+  "keywords": [
+    "blog",
+    "app"
+  ],
+  "homepage": "https://github.com/mykaya24/CleanBlog#readme",
+  "bugs": {
+    "url": "https://github.com/mykaya24/CleanBlog/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mykaya24/CleanBlog.git"
+  },
+  "license": "ISC",
+  "author": "Muhammed Yalçınkaya",
+  "type": "commonjs",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.11",
+    "prettier": "3.8.1"
+  },
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
