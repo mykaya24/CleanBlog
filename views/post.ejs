@@ -13,7 +13,10 @@
         <div class="col-lg-8 col-md-10 mx-auto">
           <div class="post-heading">
             <h1><%=post.title%></h1>
-            <h2 class="subheading"></h2>
+            <h2 class="subheading">
+              <a href="/post/edit/<%=post._id%>" class="btn btn-primary">Edit</a>
+              <a href="/post/<%=post._id%>?_method=DELETE" onclick="return confirm('Are you sure?')" class="btn btn-danger">Delete</a>
+            </h2>
             <span class="meta">Posted by
               <a href="#">Muhammed Yalçınkaya</a>
               on <%=post.dateCreated%></span>
